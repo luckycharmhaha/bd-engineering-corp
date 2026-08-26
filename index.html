@@ -186,6 +186,16 @@
     flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(200,16,46,.1);
     color:var(--red);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;
   }
+  .about-cta{margin-top:34px}
+  .about-cta a{
+    display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.92rem;
+    color:var(--red);border-bottom:2px solid rgba(200,16,46,.3);padding-bottom:3px;transition:.2s;
+  }
+  .about-cta a:hover{border-color:var(--red);gap:12px}
+  .about-visual-caption{
+    position:absolute;bottom:22px;left:0;right:0;text-align:center;padding:0 24px;
+    color:#c9c6c0;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;
+  }
 
   /* ===== Products ===== */
   .products{background:var(--ink);color:#fff;position:relative}
@@ -205,12 +215,13 @@
   @keyframes fadein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
   .prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:16px}
   .prod-card{
-    position:relative;overflow:hidden;
+    position:relative;overflow:hidden;cursor:pointer;
     background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);
     border-radius:12px;padding:20px 22px;display:flex;gap:16px;align-items:flex-start;
     transition:transform .3s cubic-bezier(.2,.8,.3,1.2),background .3s ease,border-color .3s ease,box-shadow .3s ease;
     animation:cardIn .5s ease backwards;animation-delay:calc(var(--i,0) * .035s);
   }
+  .prod-card:focus-visible{outline:2px solid var(--ember);outline-offset:3px}
   @keyframes cardIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
   .prod-card::before{
     content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
@@ -237,6 +248,63 @@
   }
   .prod-card p{font-size:.9rem;color:#e0ddd7;position:relative}
 
+  /* ===== Projects ===== */
+  .projects{background:var(--paper-dim)}
+  .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:20px}
+  .proj-card{
+    position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);
+    border-radius:var(--radius);padding:24px 22px 20px;box-shadow:var(--shadow);
+    transition:transform .3s cubic-bezier(.2,.8,.3,1.2),box-shadow .3s ease;
+    animation:cardIn .5s ease backwards;animation-delay:calc(var(--i,0) * .05s);
+  }
+  .proj-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--red),var(--ember))}
+  .proj-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+  .proj-tag{
+    display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--red);background:rgba(200,16,46,.08);padding:5px 12px;border-radius:999px;margin-bottom:14px;
+  }
+  .proj-card h3{font-family:'Georgia',serif;font-size:1.12rem;color:var(--ink);margin-bottom:8px;line-height:1.32}
+  .proj-loc{display:flex;align-items:center;gap:6px;font-size:.85rem;color:var(--ink-soft)}
+  .proj-loc .pin{color:var(--red);flex-shrink:0}
+  .proj-more{margin-top:28px;color:var(--ink-soft);font-size:.92rem}
+
+  /* ===== Icon lightbox ===== */
+  .icon-modal-overlay{
+    position:fixed;inset:0;z-index:200;
+    background:rgba(10,12,14,.84);backdrop-filter:blur(6px);
+    display:flex;align-items:center;justify-content:center;padding:24px;
+    opacity:0;pointer-events:none;transition:opacity .3s ease;
+  }
+  .icon-modal-overlay.open{opacity:1;pointer-events:auto}
+  .icon-modal{
+    position:relative;background:linear-gradient(155deg,#20252b,#14181c);
+    border:1px solid rgba(255,255,255,.12);border-radius:22px;
+    padding:52px 40px 42px;max-width:420px;width:100%;
+    display:flex;flex-direction:column;align-items:center;text-align:center;
+    box-shadow:0 30px 70px rgba(0,0,0,.55);
+    transform:scale(.8) translateY(24px);opacity:0;
+    transition:transform .38s cubic-bezier(.2,.8,.3,1.2),opacity .3s ease;
+  }
+  .icon-modal-overlay.open .icon-modal{transform:scale(1) translateY(0);opacity:1}
+  .icon-modal-ic{
+    width:min(230px,54vw);height:min(230px,54vw);border-radius:28px;flex-shrink:0;
+    background:radial-gradient(circle at 32% 26%,#fbfaf7,#e4e1da 75%);
+    display:flex;align-items:center;justify-content:center;margin-bottom:28px;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.07),0 22px 48px rgba(0,0,0,.5),0 0 0 6px rgba(255,106,61,.12);
+  }
+  .icon-modal-ic svg{width:60%;height:60%;filter:drop-shadow(0 6px 10px rgba(0,0,0,.32))}
+  .icon-modal p{color:#eee9e2;font-size:clamp(1rem,2.4vw,1.15rem);line-height:1.65;max-width:34ch}
+  .icon-modal-close{
+    position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.25s;
+  }
+  .icon-modal-close:hover{background:var(--red);border-color:var(--red);transform:rotate(90deg)}
+  @media (max-width:480px){
+    .icon-modal{padding:44px 24px 32px;border-radius:18px}
+    .icon-modal-ic{margin-bottom:22px}
+  }
+
   /* ===== Why us ===== */
   .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:24px}
   .why-card{
@@ -255,9 +323,11 @@
   .branches{background:var(--paper-dim)}
   .branch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px}
   .branch-card{
-    background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
-    border:1px solid var(--line);
+    display:block;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+    border:1px solid var(--line);color:inherit;text-decoration:none;cursor:pointer;
+    transition:transform .2s ease,box-shadow .2s ease;
   }
+  .branch-card:hover,.branch-card:focus-visible{transform:translateY(-3px);box-shadow:0 14px 32px rgba(0,0,0,.14)}
   .branch-card .head{
     background:linear-gradient(120deg,var(--ink),#262b31);color:#fff;padding:22px 26px;
     display:flex;align-items:center;gap:14px;
@@ -267,6 +337,10 @@
   }
   .branch-card .head h3{font-size:1.15rem;margin-top:2px}
   .branch-card .body{padding:22px 26px;color:var(--ink-soft);font-size:.94rem;display:flex;gap:12px}
+  .branch-card .maps-link{
+    display:flex;align-items:center;gap:6px;padding:0 26px 20px;margin-top:-8px;
+    font-size:.82rem;font-weight:600;color:var(--ember,#ff6a3d);
+  }
 
   /* ===== CTA banner ===== */
   .cta-banner{
@@ -308,6 +382,7 @@
   .contact-row > div:last-child{min-width:0}
   .contact-row .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:#8a8a8a;font-weight:700}
   .contact-row .val{font-size:.98rem;color:var(--ink);margin-top:2px;font-weight:600;overflow-wrap:break-word}
+  .contact-row .val a:hover{color:var(--ember)}
 
   /* ===== Footer ===== */
   footer{background:var(--ink);color:#c9c6c0;padding:60px 0 26px}
@@ -336,6 +411,7 @@
   @media (max-width:960px){
     .about-grid{grid-template-columns:1fr}
     .about-visual{min-height:300px}
+    .about-stats .stat{padding-right:22px;margin-right:22px}
     .footer-grid{grid-template-columns:1fr 1fr}
   }
   /* Nav collapses earlier than other content — 5 links + phone number + logo
@@ -646,15 +722,16 @@
     </div>
     <nav class="nav-links" id="navLinks">
       <a href="#about">About</a>
+      <a href="#projects">Projects</a>
       <a href="#products">Products</a>
       <a href="#why">Why Us</a>
       <a href="#branches">Branches</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a href="tel:7585983989" class="nav-call">
+    <span class="nav-call">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
-      7585983989
-    </a>
+      <a href="tel:7585983989">7585983989</a> / <a href="tel:9434871794">9434871794</a>
+    </span>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -666,16 +743,10 @@
     <h1>Protecting people &amp; property with <span class="accent">fire safety</span> engineered right.</h1>
     <p class="lead">BD Engineering Corporation is Siliguri's trusted name in fire prevention and industrial safety — TAC &amp; BIS approved equipment, turnkey fire protection systems, and 42 years of engineering on the ground.</p>
     <div class="hero-cta">
-      <a href="tel:7585983989" class="btn btn-primary">
+      <span class="btn btn-primary">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
-        Call 7585983989
-      </a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><div class="num"><span class="counter" data-target="42">0</span><span class="sfx">+</span></div><div class="lbl">Years of Service</div></div>
-      <div class="stat"><div class="num"><span class="counter" data-target="25">0</span><span class="sfx">+</span></div><div class="lbl">Fire Safety Products</div></div>
-      <div class="stat"><div class="num"><span class="counter" data-target="27">0</span><span class="sfx">+</span></div><div class="lbl">Industrial Safety Lines</div></div>
-      <div class="stat"><div class="num">2</div><div class="lbl">Siliguri Branches</div></div>
+        Call <a href="tel:7585983989">7585983989</a> / <a href="tel:9434871794">9434871794</a>
+      </span>
     </div>
   </div>
 </section>
@@ -705,23 +776,83 @@
   <div class="container about-grid">
     <div class="reveal">
       <div class="eyebrow">About Us</div>
-      <h2 class="section-title">Four decades of fire &amp; safety engineering in North Bengal.</h2>
-      <p class="section-sub">Since 1984, BD Engineering Corporation has supplied, installed and maintained fire prevention and industrial safety equipment across Siliguri and the surrounding region — from portable extinguishers to complete detection and suppression systems for industrial sites.</p>
+      <h2 class="section-title">One group. Three companies. One mission — fire safety done right.</h2>
+      <p class="section-sub">Trading and servicing fire fighting appliances out of Siliguri since 1982, we're the group behind BD Commercial Pvt. Ltd., BD Engineering Corporation and Darjeeling Traders — an ISO 9001:2015 &amp; MSME certified house with our own factory and workshop, built to take on anything from a single cylinder refill to a full turnkey fire &amp; security installation.</p>
       <ul class="about-list">
-        <li><span class="chk">✓</span> ISO 9001:2015 certified processes across sales, service &amp; maintenance</li>
-        <li><span class="chk">✓</span> TAC &amp; BIS approved fire fighting appliances, hoses, valves &amp; systems</li>
-        <li><span class="chk">✓</span> Periodical checking, hydrostatic testing, refilling &amp; AMC support</li>
-        <li><span class="chk">✓</span> Turnkey contracts for detection, alarm &amp; suppression installations</li>
+        <li><span class="chk">✓</span> Own factory &amp; workshop manufacturing fire fighting appliances, with in-house repair of fire vehicles, pumps, compressors &amp; valves</li>
+        <li><span class="chk">✓</span> Turnkey installations since 1986 — hydrant &amp; sprinkler systems, HV transformer protection, fire alarm, CCTV &amp; access control</li>
+        <li><span class="chk">✓</span> Trusted tie-ups with Gunnebo India (Minimax), HD Fire Protect, GEI Group, Kartar Valves &amp; FireFly Pumps, plus a channel partnership with Godrej &amp; Boyce</li>
+        <li><span class="chk">✓</span> 400+ projects across industries, power plants, hospitals &amp; airports — from Bhutan's Paro Airport to the Raj Bhawan in Gangtok</li>
       </ul>
+      <div class="about-cta">
+        <a href="#projects">See our landmark projects <span aria-hidden="true">→</span></a>
+      </div>
     </div>
     <div class="about-visual reveal d2">
       <div class="badge-ring">
         <div class="badge-core">
-          <div class="yr">1984</div>
-          <div class="sm">Established</div>
+          <div class="yr">1982</div>
+          <div class="sm">Est. · Siliguri</div>
         </div>
       </div>
+      <div class="about-visual-caption">BD Commercial &nbsp;·&nbsp; BD Engineering &nbsp;·&nbsp; Darjeeling Traders</div>
     </div>
+  </div>
+</section>
+
+<section id="projects" class="projects">
+  <div class="container">
+    <div class="eyebrow reveal">Landmark Projects</div>
+    <h2 class="section-title reveal">400+ projects, a few that stand out.</h2>
+    <p class="section-sub reveal d1">From power substations to royal palaces, our turnkey fire &amp; security installations span industries, governments and borders.</p>
+    <div class="proj-grid">
+      <div class="proj-card reveal" style="--i:0">
+        <span class="proj-tag">Aviation</span>
+        <h3>Paro International Airport</h3>
+        <p class="proj-loc"><span class="pin">📍</span> Paro, Bhutan</p>
+      </div>
+      <div class="proj-card reveal" style="--i:1">
+        <span class="proj-tag">Government</span>
+        <h3>Raj Bhawan</h3>
+        <p class="proj-loc"><span class="pin">📍</span> Gangtok, Sikkim — with ACPL</p>
+      </div>
+      <div class="proj-card reveal" style="--i:2">
+        <span class="proj-tag">Government</span>
+        <h3>NSG Hub</h3>
+        <p class="proj-loc"><span class="pin">📍</span> Kolkata — under NBCC</p>
+      </div>
+      <div class="proj-card reveal" style="--i:3">
+        <span class="proj-tag">Healthcare</span>
+        <h3>1000-Bedded Hospital &amp; Annexe</h3>
+        <p class="proj-loc"><span class="pin">📍</span> Sichey, Sikkim — with CEEPL</p>
+      </div>
+      <div class="proj-card reveal" style="--i:4">
+        <span class="proj-tag">Power</span>
+        <h3>2 × 400 KVA PGCL Substation</h3>
+        <p class="proj-loc"><span class="pin">📍</span> Tirunelveli, Tamil Nadu — with CGL</p>
+      </div>
+      <div class="proj-card reveal" style="--i:5">
+        <span class="proj-tag">Heritage</span>
+        <h3>Royal Palace</h3>
+        <p class="proj-loc"><span class="pin">📍</span> Punakha, Bhutan</p>
+      </div>
+      <div class="proj-card reveal" style="--i:6">
+        <span class="proj-tag">Government</span>
+        <h3>New Secretariat Building</h3>
+        <p class="proj-loc"><span class="pin">📍</span> Gangtok, Sikkim — with ACPL</p>
+      </div>
+      <div class="proj-card reveal" style="--i:7">
+        <span class="proj-tag">Industrial</span>
+        <h3>Coca-Cola Bottling Plants</h3>
+        <p class="proj-loc"><span class="pin">📍</span> Jalpaiguri, Guwahati, Dibrugarh &amp; Bhutan</p>
+      </div>
+      <div class="proj-card reveal" style="--i:8">
+        <span class="proj-tag">Defence</span>
+        <h3>Air Force Pilot Training Centre</h3>
+        <p class="proj-loc"><span class="pin">📍</span> 20 Wing, Bagdogra, Siliguri</p>
+      </div>
+    </div>
+    <p class="proj-more reveal">…and 390+ more across hotels, high-rise towers, malls, hospitals &amp; oil depots throughout North East India, Sikkim, Bhutan &amp; Nepal.</p>
   </div>
 </section>
 
@@ -837,7 +968,7 @@
     <h2 class="section-title reveal">Two branches across Siliguri.</h2>
     <p class="section-sub reveal d1">Visit our marketing branch or head office — both located centrally in Siliguri, West Bengal.</p>
     <div class="branch-grid">
-      <div class="branch-card reveal">
+      <a class="branch-card reveal" href="https://www.google.com/maps/search/?api=1&query=S.F.%20Road%2C%20below%20LIC%20Building%2C%20Siliguri%2C%20West%20Bengal" target="_blank" rel="noopener noreferrer" aria-label="Open Marketing Branch location in Google Maps">
         <div class="head">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ff6a3d" stroke-width="1.8"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
           <div>
@@ -849,8 +980,12 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8102e" stroke-width="2" style="flex-shrink:0;margin-top:2px"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
           <span>S.F. Road, below LIC Building, Siliguri, West Bengal</span>
         </div>
-      </div>
-      <div class="branch-card reveal d2">
+        <div class="maps-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+          View on Google Maps
+        </div>
+      </a>
+      <a class="branch-card reveal d2" href="https://www.google.com/maps/search/?api=1&query=Rani%20Laxmi%20Bai%20Sarani%2C%20behind%20SBI%20S.F.%20Road%20Branch%2C%20Siliguri%2C%20West%20Bengal" target="_blank" rel="noopener noreferrer" aria-label="Open Head Office location in Google Maps">
         <div class="head">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ff6a3d" stroke-width="1.8"><path d="M3 21h18M6 21V10l6-6 6 6v11M10 21v-5h4v5"/></svg>
           <div>
@@ -862,7 +997,11 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8102e" stroke-width="2" style="flex-shrink:0;margin-top:2px"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
           <span>Rani Laxmi Bai Sarani, behind SBI S.F. Road Branch, Siliguri, West Bengal</span>
         </div>
-      </div>
+        <div class="maps-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+          View on Google Maps
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -873,10 +1012,10 @@
       <h2>Need fire safety equipment or a site inspection?</h2>
       <p>Talk to our team about extinguisher refills, AMC, or a full fire protection installation.</p>
     </div>
-    <a href="tel:7585983989" class="cta-phone">
+    <span class="cta-phone">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
-      <span><div class="lbl">Call now</div><div class="num">7585983989</div></span>
-    </a>
+      <span><div class="lbl">Call now</div><div class="num"><a href="tel:7585983989">7585983989</a> / <a href="tel:9434871794">9434871794</a></div></span>
+    </span>
   </div>
 </section>
 
@@ -890,19 +1029,19 @@
         <div class="contact-card">
           <div class="contact-row">
             <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg></div>
-            <div><div class="lbl">Mobile</div><div class="val"><a href="tel:7585983989">7585983989</a></div></div>
+            <div><div class="lbl">Mobile</div><div class="val"><a href="tel:7585983989">7585983989</a>, <a href="tel:9434871794">9434871794</a></div></div>
           </div>
           <div class="contact-row">
             <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 7h18M8 4v3M16 4v3"/></svg></div>
-            <div><div class="lbl">Landline</div><div class="val">0353-2561830, 2560974, 2561784</div></div>
+            <div><div class="lbl">Landline</div><div class="val"><a href="tel:03532561830">0353-2561830</a>, <a href="tel:03532560974">2560974</a>, <a href="tel:03532561784">2561784</a></div></div>
           </div>
           <div class="contact-row">
             <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></div>
-            <div><div class="lbl">Email</div><div class="val"><a href="mailto:bdengrsig@gmail.com">bdeng@gmail.com</a></div></div>
+            <div><div class="lbl">Email</div><div class="val"><a href="mailto:bdenggslg@gmail.com">bdenggslg@gmail.com</a></div></div>
           </div>
           <div class="contact-row">
             <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            <div><div class="lbl">Registered Address</div><div class="val">Station Feeder Road, Siliguri – 734405, West Bengal</div></div>
+            <div><div class="lbl">Registered Address</div><div class="val"><a href="https://www.google.com/maps/search/?api=1&query=Station%20Feeder%20Road%2C%20Siliguri%20734405%2C%20West%20Bengal" target="_blank" rel="noopener noreferrer">Station Feeder Road, Siliguri – 734405, West Bengal</a></div></div>
           </div>
         </div>
       </div>
@@ -924,6 +1063,7 @@
         <h4>Quick Links</h4>
         <ul>
           <li><a href="#about">About Us</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#products">Products</a></li>
           <li><a href="#why">Why Us</a></li>
           <li><a href="#branches">Branches</a></li>
@@ -933,10 +1073,10 @@
       <div>
         <h4>Contact</h4>
         <ul>
-          <li>Mobile: 7585983989</li>
-          <li>Landline: 0353-2561830</li>
-          <li>Email: bdenggslg@gmail.com</li>
-          <li>Station Feeder Road, Siliguri – 734405</li>
+          <li>Mobile: <a href="tel:7585983989">7585983989</a>, <a href="tel:9434871794">9434871794</a></li>
+          <li>Landline: <a href="tel:03532561830">0353-2561830</a></li>
+          <li>Email: <a href="mailto:bdenggslg@gmail.com">bdenggslg@gmail.com</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Station%20Feeder%20Road%2C%20Siliguri%20734405" target="_blank" rel="noopener noreferrer">Station Feeder Road, Siliguri – 734405</a></li>
         </ul>
       </div>
     </div>
@@ -969,6 +1109,50 @@
       document.getElementById(btn.dataset.tab).classList.add('active');
     });
   });
+
+  // icon lightbox — click a product card to see its icon enlarged
+  const modalOverlay = document.createElement('div');
+  modalOverlay.className = 'icon-modal-overlay';
+  modalOverlay.innerHTML = `
+    <div class="icon-modal" role="dialog" aria-modal="true" aria-label="Product icon">
+      <button class="icon-modal-close" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="icon-modal-ic"><svg viewBox="0 0 24 24"><use id="modalIconUse"></use></svg></div>
+      <p id="modalIconText"></p>
+    </div>`;
+  document.body.appendChild(modalOverlay);
+  const modalIconUse = modalOverlay.querySelector('#modalIconUse');
+  const modalIconText = modalOverlay.querySelector('#modalIconText');
+  let lastFocused = null;
+
+  function openIconModal(card){
+    const use = card.querySelector('.prod-ic use');
+    const text = card.querySelector('p');
+    if (!use || !text) return;
+    modalIconUse.setAttribute('href', use.getAttribute('href'));
+    modalIconText.textContent = text.textContent;
+    lastFocused = document.activeElement;
+    modalOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    modalOverlay.querySelector('.icon-modal-close').focus();
+  }
+  function closeIconModal(){
+    modalOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  }
+  document.querySelectorAll('.prod-card').forEach(card => {
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.addEventListener('click', () => openIconModal(card));
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openIconModal(card); }
+    });
+  });
+  modalOverlay.querySelector('.icon-modal-close').addEventListener('click', closeIconModal);
+  modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeIconModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modalOverlay.classList.contains('open')) closeIconModal(); });
 
   // scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
