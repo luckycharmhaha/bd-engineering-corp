@@ -5,7 +5,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BD Engineering Corporation | Fire &amp; Industrial Safety Engineers</title>
 <meta name="description" content="BD Engineering Corporation — ISO 9001:2015 certified fire and industrial safety engineers serving since 1984. Siliguri, West Bengal.">
+<link rel="canonical" href="https://fire-extenguisher.vercel.app/">
 <link rel="icon" type="image/png" href="bd-logo.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BD Engineering Corporation">
+<meta property="og:title" content="BD Engineering Corporation | Fire &amp; Industrial Safety Engineers">
+<meta property="og:description" content="ISO 9001:2015 &amp; MSME certified fire and industrial safety engineers serving Siliguri, North Bengal, Sikkim, Bhutan &amp; Nepal since 1982. Equipment supply, turnkey installation, AMC &amp; refills.">
+<meta property="og:image" content="https://fire-extenguisher.vercel.app/bd-logo.png">
+<meta property="og:url" content="https://fire-extenguisher.vercel.app/">
+<meta property="og:locale" content="en_IN">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BD Engineering Corporation | Fire &amp; Industrial Safety Engineers">
+<meta name="twitter:description" content="ISO 9001:2015 &amp; MSME certified fire and industrial safety engineers serving Siliguri, North Bengal, Sikkim, Bhutan &amp; Nepal since 1982.">
+<meta name="twitter:image" content="https://fire-extenguisher.vercel.app/bd-logo.png">
+
+<!-- Local business structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "BD Engineering Corporation",
+  "image": "https://fire-extenguisher.vercel.app/bd-logo.png",
+  "url": "https://fire-extenguisher.vercel.app/",
+  "telephone": ["+91-7585983989", "+91-9434871794", "+91-9474392398"],
+  "email": "bdenggslg@gmail.com",
+  "priceRange": "$$",
+  "description": "ISO 9001:2015 & MSME certified supplier, installer and maintainer of fire fighting appliances and industrial safety equipment, serving Siliguri, North Bengal, Sikkim, Bhutan and Nepal since 1982.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Station Feeder Road",
+    "addressLocality": "Siliguri",
+    "addressRegion": "West Bengal",
+    "postalCode": "734405",
+    "addressCountry": "IN"
+  },
+  "areaServed": ["Siliguri", "North Bengal", "Sikkim", "Bhutan", "Nepal", "Darjeeling"],
+  "department": [
+    {
+      "@type": "LocalBusiness",
+      "name": "BD Engineering Corporation — S.F. Road Branch",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "S.F. Road, below LIC Building",
+        "addressLocality": "Siliguri",
+        "addressRegion": "West Bengal",
+        "addressCountry": "IN"
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "BD Engineering Corporation — Rani Laxmi Bai Sarani Branch",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rani Laxmi Bai Sarani, behind SBI S.F. Road Branch",
+        "addressLocality": "Siliguri",
+        "addressRegion": "West Bengal",
+        "addressCountry": "IN"
+      }
+    }
+  ]
+}
+</script>
+
 <style>
   :root{
     --red:#c8102e;
@@ -45,7 +110,8 @@
   .section-title{font-size:clamp(1.7rem,3.2vw,2.5rem);color:var(--ink);margin-bottom:14px}
   .section-sub{color:var(--ink-soft);max-width:640px;font-size:1.02rem;margin-bottom:44px}
   .btn{
-    display:inline-flex;align-items:center;gap:10px;
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    flex-wrap:wrap;max-width:100%;text-align:center;
     padding:14px 30px;border-radius:999px;font-weight:700;
     font-size:.95rem;letter-spacing:.02em;
     border:2px solid transparent;cursor:pointer;
@@ -92,12 +158,13 @@
   .footer-brand .emblem-chip{width:44px;height:44px;border-radius:9px}
   .brand-text .name{font-family:'Georgia',serif;font-weight:700;font-size:1.15rem;color:var(--ink);letter-spacing:.01em}
   .brand-text .tag{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red);font-weight:700}
-  .nav-links{display:flex;gap:30px;align-items:center}
-  .nav-links a{font-size:.92rem;font-weight:600;color:var(--ink-soft);position:relative;padding:6px 0}
+  .nav-links{display:flex;gap:16px;align-items:center;flex-wrap:nowrap}
+  .nav-links a{font-size:.83rem;font-weight:600;color:var(--ink-soft);position:relative;padding:6px 0;white-space:nowrap}
   .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--red);transition:width .25s ease}
   .nav-links a:hover{color:var(--ink)}
   .nav-links a:hover::after{width:100%}
-  .nav-call{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--red)}
+  .nav-call{display:flex;align-items:center;gap:6px;font-weight:700;color:var(--red);white-space:nowrap;flex-shrink:0;font-size:.8rem}
+  .nav-call svg{flex-shrink:0}
   .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0;padding:10px;flex-shrink:0}
   .burger span{width:26px;height:2.5px;background:var(--ink);border-radius:2px;transition:.3s}
 
@@ -144,7 +211,6 @@
   .hero h1{font-size:clamp(2.3rem,5.4vw,4.1rem);font-weight:700;max-width:820px;letter-spacing:-.01em}
   .hero h1 .accent{color:var(--ember);font-style:italic}
   .hero p.lead{margin-top:22px;max-width:600px;font-size:1.12rem;color:#e9e6e2}
-  .hero-cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:38px}
   .hero-stats{display:flex;flex-wrap:wrap;gap:0;margin-top:64px;border-top:1px solid rgba(255,255,255,.2);padding-top:30px}
   .hero-stats .stat{padding-right:48px;margin-right:48px;border-right:1px solid rgba(255,255,255,.18)}
   .hero-stats .stat:last-child{border-right:none}
@@ -305,6 +371,17 @@
     .icon-modal-ic{margin-bottom:22px}
   }
 
+  /* ===== Brands ===== */
+  .brand-list{columns:3 220px;column-gap:48px}
+  .brand-list li{
+    break-inside:avoid;display:flex;align-items:center;gap:12px;
+    padding:13px 0;border-bottom:1px solid var(--line);
+    font-weight:600;color:var(--ink);font-size:1rem;
+    animation:cardIn .5s ease backwards;animation-delay:calc(var(--i,0) * .04s);
+  }
+  .brand-list li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0}
+  .brand-etc{margin-top:22px;color:var(--ink-soft);font-size:.95rem;font-style:italic}
+
   /* ===== Why us ===== */
   .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:24px}
   .why-card{
@@ -318,6 +395,25 @@
   }
   .why-card h3{font-size:1.12rem;margin-bottom:10px;color:var(--ink)}
   .why-card p{font-size:.92rem;color:var(--ink-soft)}
+
+  /* ===== Certifications ===== */
+  .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px}
+  .cert-card{
+    display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+    border-radius:var(--radius);padding:28px 26px;box-shadow:var(--shadow);color:inherit;
+    transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+  }
+  .cert-card:hover,.cert-card:focus-visible{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:rgba(200,16,46,.3)}
+  .cert-card .ic{
+    flex-shrink:0;width:52px;height:52px;border-radius:12px;background:rgba(200,16,46,.08);
+    color:var(--red);display:flex;align-items:center;justify-content:center;
+  }
+  .cert-card h3{font-size:1.05rem;color:var(--ink);margin-bottom:6px}
+  .cert-card p{font-size:.88rem;color:var(--ink-soft)}
+  .cert-card .view{
+    margin-top:12px;display:inline-flex;align-items:center;gap:6px;
+    font-weight:700;font-size:.85rem;color:var(--red);
+  }
 
   /* ===== Branches ===== */
   .branches{background:var(--paper-dim)}
@@ -414,9 +510,9 @@
     .about-stats .stat{padding-right:22px;margin-right:22px}
     .footer-grid{grid-template-columns:1fr 1fr}
   }
-  /* Nav collapses earlier than other content — 5 links + phone number + logo
+  /* Nav collapses earlier than other content — 8 links + all 3 phone numbers + logo
      don't fit in a 768px tablet row, so give it its own, wider breakpoint. */
-  @media (max-width:940px){
+  @media (max-width:1340px){
     .nav-links{position:fixed;top:78px;left:0;right:0;background:var(--paper);flex-direction:column;
       padding:20px 24px;gap:0;border-bottom:1px solid var(--line);transform:translateY(-16px);
       opacity:0;visibility:hidden;
@@ -432,6 +528,10 @@
     .hero-stats .stat{padding-right:24px;margin-right:24px}
     .footer-grid{grid-template-columns:1fr;gap:30px}
     .cta-banner .container{flex-direction:column;align-items:flex-start}
+  }
+  @media (max-width:480px){
+    .cta-phone{align-items:flex-start}
+    .cta-phone .num{font-size:1.15rem}
   }
   @media (max-width:400px){
     .brand-text .name{font-size:1rem}
@@ -724,13 +824,15 @@
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#products">Products</a>
+      <a href="#brands">Brands</a>
       <a href="#why">Why Us</a>
+      <a href="#certifications">Certificates</a>
       <a href="#branches">Branches</a>
       <a href="#contact">Contact</a>
     </nav>
     <span class="nav-call">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
-      <a href="tel:7585983989">7585983989</a> / <a href="tel:9434871794">9434871794</a>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+      <a href="tel:7585983989">7585983989</a>/<a href="tel:9434871794">9434871794</a>/<a href="tel:9474392398">9474392398</a>
     </span>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -742,12 +844,6 @@
     <div class="hero-badge"><span class="dot"></span> ISO 9001:2015 Certified &nbsp;•&nbsp; Est. 1984</div>
     <h1>Protecting people &amp; property with <span class="accent">fire safety</span> engineered right.</h1>
     <p class="lead">BD Engineering Corporation is Siliguri's trusted name in fire prevention and industrial safety — TAC &amp; BIS approved equipment, turnkey fire protection systems, and 42 years of engineering on the ground.</p>
-    <div class="hero-cta">
-      <span class="btn btn-primary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
-        Call <a href="tel:7585983989">7585983989</a> / <a href="tel:9434871794">9434871794</a>
-      </span>
-    </div>
   </div>
 </section>
 
@@ -932,6 +1028,29 @@
   </div>
 </section>
 
+<section id="brands">
+  <div class="container">
+    <div class="eyebrow reveal">Trusted Partners</div>
+    <h2 class="section-title reveal">Brands we deal in.</h2>
+    <p class="section-sub reveal d1">We supply, install and service equipment from India's leading fire safety and industrial equipment manufacturers.</p>
+    <ul class="brand-list reveal d1">
+      <li style="--i:0">Godrej Security</li>
+      <li style="--i:1">Fire Shield Engineering Equipment</li>
+      <li style="--i:2">Kartar Valves</li>
+      <li style="--i:3">Karam Safety</li>
+      <li style="--i:4">Deflame India</li>
+      <li style="--i:5">Honeywell</li>
+      <li style="--i:6">Firefly Pumps</li>
+      <li style="--i:7">Kirloskar Pumps</li>
+      <li style="--i:8">Winco Valves</li>
+      <li style="--i:9">HD Limited</li>
+      <li style="--i:10">Ronak</li>
+      <li style="--i:11">Ases</li>
+    </ul>
+    <p class="brand-etc reveal d2">…and many more.</p>
+  </div>
+</section>
+
 <section id="why">
   <div class="container">
     <div class="eyebrow reveal">Why BD Engineering</div>
@@ -958,6 +1077,38 @@
         <h3>Turnkey Capability</h3>
         <p>End-to-end contracts for fire detection &amp; protection — design, supply, installation, testing and AMC.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="container">
+    <div class="eyebrow reveal">Proof &amp; Compliance</div>
+    <h2 class="section-title reveal">Our certifications.</h2>
+    <p class="section-sub reveal d1">Click a certificate below to view or download the proof document.</p>
+    <div class="cert-grid">
+      <a class="cert-card reveal" href="ISO%20Certificate.pdf" download="BD-Engineering-ISO-9001-2015-Certificate.pdf">
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div>
+          <h3>ISO 9001:2015 Certificate</h3>
+          <p>Quality management system certification.</p>
+          <span class="view">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v13m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+            View / Download PDF
+          </span>
+        </div>
+      </a>
+      <a class="cert-card reveal d2" href="UDYAM%20UPDATE%20%28NEW%29.pdf" download="BD-Engineering-Udyam-MSME-Certificate.pdf">
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 11l2 2 4-4M9 16h6"/></svg></div>
+        <div>
+          <h3>Udyam (MSME) Registration</h3>
+          <p>Micro, Small &amp; Medium Enterprises registration certificate.</p>
+          <span class="view">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v13m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+            View / Download PDF
+          </span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -1014,7 +1165,7 @@
     </div>
     <span class="cta-phone">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
-      <span><div class="lbl">Call now</div><div class="num"><a href="tel:7585983989">7585983989</a> / <a href="tel:9434871794">9434871794</a></div></span>
+      <span><div class="lbl">Call now</div><div class="num"><a href="tel:7585983989">7585983989</a> / <a href="tel:9434871794">9434871794</a> / <a href="tel:9474392398">9474392398</a></div></span>
     </span>
   </div>
 </section>
@@ -1029,7 +1180,7 @@
         <div class="contact-card">
           <div class="contact-row">
             <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg></div>
-            <div><div class="lbl">Mobile</div><div class="val"><a href="tel:7585983989">7585983989</a>, <a href="tel:9434871794">9434871794</a></div></div>
+            <div><div class="lbl">Mobile</div><div class="val"><a href="tel:7585983989">7585983989</a>, <a href="tel:9434871794">9434871794</a>, <a href="tel:9474392398">9474392398</a></div></div>
           </div>
           <div class="contact-row">
             <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 7h18M8 4v3M16 4v3"/></svg></div>
@@ -1065,7 +1216,9 @@
           <li><a href="#about">About Us</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#products">Products</a></li>
+          <li><a href="#brands">Brands</a></li>
           <li><a href="#why">Why Us</a></li>
+          <li><a href="#certifications">Certificates</a></li>
           <li><a href="#branches">Branches</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -1073,7 +1226,7 @@
       <div>
         <h4>Contact</h4>
         <ul>
-          <li>Mobile: <a href="tel:7585983989">7585983989</a>, <a href="tel:9434871794">9434871794</a></li>
+          <li>Mobile: <a href="tel:7585983989">7585983989</a>, <a href="tel:9434871794">9434871794</a>, <a href="tel:9474392398">9474392398</a></li>
           <li>Landline: <a href="tel:03532561830">0353-2561830</a></li>
           <li>Email: <a href="mailto:bdenggslg@gmail.com">bdenggslg@gmail.com</a></li>
           <li><a href="https://www.google.com/maps/search/?api=1&query=Station%20Feeder%20Road%2C%20Siliguri%20734405" target="_blank" rel="noopener noreferrer">Station Feeder Road, Siliguri – 734405</a></li>
